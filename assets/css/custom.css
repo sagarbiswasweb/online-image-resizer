@@ -1,0 +1,839 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+/* body {
+    background-image: url("../images/3408105.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+
+.img-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#imagePreview {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-preview {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+}
+
+.nav-item button.active {
+    background-color: #007bff;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+    /* Prevents content from overflowing */
+}
+
+#image-container {
+    max-width: 100%;
+    max-height: 100vh;
+    /* Ensures the image does not exceed the viewport height */
+    overflow: hidden;
+    /* Hides any overflow */
+}
+
+#imageToCrop {
+    width: 100%;
+    height: auto;
+    /* Maintains aspect ratio */
+    max-width: 100%;
+    max-height: 100vh;
+    /* Keeps the image within the viewport */
+    object-fit: contain;
+    /* Adjusts the image within its container */
+}
+
+
+
+
+
+/* Card hover effect */
+.card:hover {
+    /* transform: translateY(-10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; */
+}
+
+.hover-shadow {
+    transition: box-shadow 0.3s ease;
+}
+
+.card-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+.card-title {
+    /* font-size: 1.2rem;
+    font-weight: 600; */
+}
+
+.btn-success {
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #28a745;
+}
+
+i {
+    margin-bottom: 15px;
+}
+
+.text-primary {
+    color: #007bff !important;
+}
+
+
+.drag-drop {
+    border: 2px dashed #007bff;
+    padding: 40px;
+    text-align: center;
+    color: rgb(97, 97, 97);
+    cursor: pointer;
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #b9b9b9;
+    border: 3px dashed #8614e4;
+}
+
+.drag-drop.dragover {
+    background-color: #e2e6ea;
+}
+
+.drag-drop img {
+    max-width: 100%;
+    max-height: 150px;
+    margin-top: 15px;
+    display: none;
+}
+
+.upload-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.upload-btn:hover {
+    background-color: #0056b3;
+}
+
+#nextButton {
+    display: none;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+/* ////////////// NAVBAR DESIGN START //////////// */
+
+.cal-container {
+    height: 85px;
+    max-width: 100%;
+    margin: auto;
+    padding: 0 15px;
+    font-family: "Poppins", sans-serif;
+    background-color: #2d3436;
+}
+
+.cal-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    /* Higher z-index to ensure navbar is above the overlay */
+}
+
+.cal-container {
+    padding: 0 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* for dynamic logo from WordPress  */
+.custom-logo {
+    height: auto;
+    width: 250px;
+}
+
+/* for asset's logo  */
+.cal-header .cal-logo {
+    height: auto;
+    width: 150px;
+}
+
+.cal-header .cal-menu-btn {
+    display: none;
+}
+
+.cal-header .cal-menu li {
+    display: inline-block;
+}
+
+.cal-header .cal-menu li+li {
+    margin-left: 40px;
+}
+
+.cal-header .cal-menu a {
+    font-size: 16px;
+    display: block;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+    font-weight: 500;
+    position: relative;
+    transition: color 0.5s;
+}
+
+.cal-header .cal-menu a::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #FFCB4C;
+    transform: scale(0);
+    transition: 0.5s;
+}
+
+.cal-header .cal-menu a:hover {
+    color: #FFCB4C;
+}
+
+.cal-header .cal-menu a:hover::after {
+    transform: none;
+}
+
+.cal-menu ul {
+    margin-top: 20px;
+}
+
+/* Overlay Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    z-index: 15;
+    /* Lower than the navbar */
+    display: none;
+    /* Hidden by default */
+}
+
+/* Mobile Styles */
+@media(max-width: 991px) {
+    .cal-container {
+        height: 85px;
+        padding: 0 10px;
+    }
+
+    .custom-logo {
+        height: auto;
+        width: 200px;
+    }
+
+    .cal-header .cal-logo {
+        height: auto;
+        width: 130px;
+    }
+
+    .cal-header .cal-menu-btn {
+        height: 36px;
+        width: 44px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 21;
+        /* Above the overlay when opened */
+    }
+
+    .cal-header .cal-menu-btn .cal-line {
+        position: absolute;
+        height: 2px;
+        width: 30px;
+        background-color: hsl(0, 0%, 100%);
+        transition: transform 0.5s;
+    }
+
+    .cal-header .cal-menu-btn .cal-line-1 {
+        transform: translateY(-8px);
+    }
+
+    .cal-header .cal-menu-btn .cal-line-3 {
+        transform: translateY(8px);
+    }
+
+    .cal-header .cal-menu-btn.active .cal-line-2 {
+        transform: rotate(-45deg);
+    }
+
+    .cal-header .cal-menu-btn.active .cal-line-1,
+    .cal-header .cal-menu-btn.active .cal-line-3 {
+        transform: translateY(0) rotate(-135deg);
+    }
+
+    .cal-header .cal-menu {
+        position: fixed;
+        left: 100%;
+        top: 0;
+        height: 100%;
+        background-color: hsl(60, 4%, 9%);
+        width: 280px;
+        padding: 62px 0 30px;
+        transform: translateX(100%);
+        /* Start off-screen to the right */
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        /* Added opacity transition */
+        z-index: 20;
+        /* Ensure it appears above the overlay */
+        opacity: 0;
+        /* Start hidden */
+    }
+
+    .cal-header .cal-menu.open {
+        transform: translateX(-100%);
+        opacity: 1;
+        /* Fade in */
+    }
+
+    .cal-header .cal-menu::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 85px;
+        /* Should match .cal-container's height */
+        box-sizing: border-box;
+        border-bottom: 1px solid hsla(0, 0%, 100%, 0.15);
+    }
+
+    .cal-header .cal-menu>ul {
+        margin-left: 25px;
+        margin-top: 30px;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+
+    .cal-header .cal-menu li {
+        display: block;
+    }
+
+    .cal-header .cal-menu li+li {
+        margin: 0;
+    }
+
+    .cal-header .cal-menu a {
+        padding: 12px 0px;
+    }
+
+    .cal-header .cal-menu a::after {
+        content: none;
+    }
+}
+
+/* Prevent body scrolling */
+body.no-scroll {
+    overflow: hidden;
+    /* Prevent scrolling of the body */
+}
+
+/* ////////////// NAVBAR DESIGN END //////////// */
+
+
+
+main {
+    margin-top: 85px;
+    /* background-color: #353b48; */
+    /* color: white; */
+}
+
+.entry-title {
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ////////////// FOOTER START //////////// */
+
+/* General Footer Styles */
+.my-footer-container {
+    color: #DDDCDC;
+    background-color: #222;
+    padding: 30px 0;
+    border-top: 3px solid #000000;
+}
+
+.my-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.my-footer p {
+    color: #b8b8b8;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.my-footer h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Footer Links */
+.my-footer-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.my-footer-ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.my-footer-link-style {
+    color: #ffffff !important;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.my-footer-link-style:hover {
+    color: #FFCB4C !important;
+    text-decoration: none;
+}
+
+/* Social Buttons */
+.cal-social-btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.cal-social-btns a {
+    text-decoration: none;
+    display: inline-block;
+    perspective: 200px;
+}
+
+.cal-social-btns .box {
+    --box-size: 40px;
+    /* Size of the button */
+    display: block;
+    height: var(--box-size);
+    width: var(--box-size);
+    position: relative;
+    transition: transform 0.3s ease;
+    /* Transition for scaling effect */
+}
+
+.cal-social-btns a:hover .box {
+    transform: scale(1.1);
+    /* Scale up on hover */
+}
+
+.cal-social-btns .face {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(0, 0%, 46%);
+    color: hsl(0, 0%, 0%);
+    border-radius: 50%;
+}
+
+.cal-social-btns .face i {
+    padding-top: 35%;
+}
+
+.cal-social-btns .face:hover {
+    color: #FFCB4C;
+    transition: color 0.5s ease-in-out;
+}
+
+/* Responsive Improvements */
+@media (max-width: 768px) {
+    .my-footer {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .cal-social-btns {
+        gap: 20px;
+    }
+}
+
+.developed-by {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a8a8a8;
+    word-spacing: 5px;
+    padding: 10px 0;
+    font-size: small;
+    background-color: #222;
+}
+
+.developed-by small {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.developed-by .my-footer-link-style {
+    color: #a8a8a8;
+    font-size: 11px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.developed-by .my-footer-link-style:hover {
+    color: #FFCB4C;
+    text-decoration: underline;
+}
+
+/* ////////////// FOOTER END //////////// */
+
+
+
+
+/* ////////////// for functionality //////////// */
+.cropImg {
+    transition: transform 0.3s ease-in-out;
+}
+
+.rotateImg {
+    transition: transform 0.3s ease-in-out;
+}
+
+.convertImg {
+    transition: transform 0.3s ease-in-out;
+}
+
+.cropImg:hover {
+    transform: translateY(-5px);
+}
+
+.rotateImg:hover {
+    transform: translateY(-5px);
+}
+
+.convertImg:hover {
+    transform: translateY(-5px);
+}
+
+.cropImg .card,
+.rotateImg .card,
+.convertImg .card {
+    background-color: #95afc0;
+    /* Soft blue-gray background */
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle default shadow */
+}
+
+.cropImg .card:hover,
+.rotateImg .card:hover,
+.convertImg .card:hover {
+    transform: translateY(-1px);
+    /* Slight lift effect */
+    box-shadow: 0 10px 25px rgba(0, 168, 255, 0.4);
+    /* Blue glow hover effect */
+}
+
+
+
+
+/* ///////////////// for one click resize card section ///////////////// */
+.one-clik-resize .card {
+    padding: 1px;
+    background-color: #f3bd34;
+    border-radius: 10px;
+}
+
+.one-clik-resize .card-body {
+    background-color: #273c75;
+    /* Slight contrast from main background */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Subtle depth */
+    transition: all 0.3s ease-in-out;
+}
+
+.one-clik-resize .card-body:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(218, 205, 23, 0.3);
+    /* Soft blue glow */
+}
+
+.one-clik-resize .card-body ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.one-clik-resize .card-body ol li {
+    margin-bottom: 8px;
+}
+
+.one-clik-resize .card-body ol li a {
+    display: block;
+    padding: 8px 15px;
+    /* Increased padding for better spacing */
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #f1f2f3;
+    /* Soft gray text for readability */
+    background: rgba(255, 255, 255, 0.1);
+    /* Subtle transparent effect */
+    transition: all 0.3s ease-in-out;
+}
+
+.one-clik-resize .card-body ol li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    /* Bright blue hover */
+    color: white;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    /* Enhanced glow */
+}
+
+/* /////////////// for resize main body //////////////// */
+.site-main {
+    background-color: #192a56;
+    color: #dcdde1;
+    /* Ensuring text remains readable */
+    /* background-image: url("../images/3408105.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+
+/* ////////////// for preview image & canvas section //////////////  */
+.preview-card .card {
+    background: rgba(48, 51, 107, 0.3);
+    /* Semi-transparent dark blue */
+    backdrop-filter: blur(10px);
+    /* Blurry glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari support */
+    border-radius: 10px;
+    /* Smooth rounded edges */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Subtle border */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    /* Soft shadow for depth */
+    color: #fff;
+    /* Light text color for contrast */
+    padding: 20px;
+    /* Add some padding for content */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Smooth hover effect */
+}
+
+.preview-card .card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    /* Stronger shadow on hover */
+}
+
+
+/* for cards scrolling effect */
+.resize-page .card,
+.crop-page .card {
+    opacity: 0;
+    /* Initially hidden */
+    transform: translateY(50px);
+    /* Start from below */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    /* Apply smooth transition */
+}
+
+.resize-page .card.visible,
+.crop-page .card.visible {
+    opacity: 1;
+    /* Fully visible when in view */
+    transform: translateY(0);
+    /* Move to original position */
+}
+
+
+
+
+/* ////////////////// for button design ///////////////  */
+.nextButton .downloadButton .resizeButton {
+    display: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    /* background: linear-gradient(135deg, #00c6ff, #0072ff); */
+    color: white;
+    border: 1px solid yellow;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.downloadButton:hover,
+.resizeButton:hover,
+.nextButton:hover {
+    /* background: linear-gradient(135deg, #9598f5, #7073bb); */
+    /* box-shadow: 0 1px 2px #a4da10;  */
+    transform: translateY(-1px);
+    /* Slight lift effect */
+    box-shadow: 0 10px 25px rgba(188, 235, 114, 0.4);
+    /* Blue glow hover effect */
+}
+
+.downloadButton:focus,
+.resizeButton:focus,
+.nextButton:focus {
+    outline: none;
+}
+
+.downloadButton:active,
+.resizeButton:active,
+.nextButton:active {
+    transform: translateY(2px);
+    /* Button presses down on click */
+    box-shadow: 0 4px 10px rgba(0, 114, 255, 0.3);
+    /* Softer shadow on click */
+}
+
+.downloadButton:hover {
+    color: black !important;
+    text-shadow: 2px 2px 4px black;
+}
+
+
+
+/* for content  */
+.content {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Blurring effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    padding: 20px; /* Add spacing inside */
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* foter links  */
+.footer-links {
+    /* background-color: black; */
+    padding: 20px 0;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-list li {
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    color: #bdf180 !important;
+    /* White text */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    /* padding: 8px 12px; */
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    background-color: #444;
+    color: #ffd700 !important;
+    /* Gold color on hover */
+    text-decoration: underline;
+}
